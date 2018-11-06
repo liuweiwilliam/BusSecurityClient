@@ -1,0 +1,34 @@
+package com.lzz.swing.component;
+
+import java.awt.Component;
+
+import javax.swing.JOptionPane;
+
+public class LzzOptionPane extends JOptionPane {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8728737350889177098L;
+	
+	/**
+	 * 弹出确认窗口
+	 * @param com 弹出窗口依附的组件
+	 * @param msg 提示信息
+	 * @return
+	 */
+	public static int showConfirm(Component com, String msg){
+		return JOptionPane.showConfirmDialog(com, msg);
+	}
+	
+	/**
+	 * 显示信息提示框
+	 * @param msg
+	 * @return
+	 */
+	public static void showMsg(Component com, String msg){
+		JOptionPane.showMessageDialog(com, msg);
+	}
+	
+	
+}

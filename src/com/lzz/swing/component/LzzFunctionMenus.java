@@ -1,0 +1,166 @@
+package com.lzz.swing.component;
+
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.lang.reflect.InvocationTargetException;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import com.lzz.swing.util.LzzFrameUtil;
+
+public class LzzFunctionMenus extends JPanel {
+	/**
+	 * 最小化按钮控件
+	 */
+	private LzzImgLabel labelMin;
+	/**
+	 * 最大化按钮控件
+	 */
+	private LzzImgLabel labelMax;
+	/**
+	 * 向下还原控件
+	 */
+	private LzzImgLabel labelResize;
+	/**
+	 * 关闭按钮控件
+	 */
+	private LzzImgLabel labelClose;
+	
+	/**
+	 * 功能菜单图标
+	 */
+	private String img_url_min = "/images/min.png";
+	private String img_url_close = "/images/exit.png";
+	private String img_url_max = "/images/max.png";
+	private String img_url_resize = "/images/preSize.png";
+	
+	public LzzFunctionMenus(){
+		setOpaque(false);
+		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		//添加最小化按钮
+		labelMin = new LzzImgLabel(img_url_min);
+		labelMin.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		
+		//添加最大化按钮
+		labelMax = new LzzImgLabel(img_url_max);
+		labelMax.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		
+		//添加还原按钮
+		labelResize = new LzzImgLabel(img_url_resize);
+		labelResize.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		
+		//添加关闭按钮
+		labelClose = new LzzImgLabel(img_url_close);
+		labelClose.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		
+		add(labelMin);
+		add(labelMax);
+		add(labelResize);
+		labelResize.setVisible(false);
+		add(labelClose);
+	}
+	
+	public void bindParentFrame(final JFrame parent){
+		/**
+		 * 添加最小化事件
+		 */
+		labelMin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				minWin(parent);
+			}
+		});
+		
+		/**
+		 * 最大化事件
+		 */
+		labelMax.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				maxWin(parent);
+			}
+		});
+		
+		/**
+		 * 向下还原事件
+		 */
+		labelResize.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				resizeWin(parent);
+			}
+		});
+		
+		/**
+		 * 关闭窗口时间
+		 */
+		labelClose.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				closeWin(parent);
+			}
+		});
+	}
+	
+	/**
+	 * 关闭窗口
+	 */
+	public void closeWin(JFrame frame) {
+		// TODO Auto-generated method stub
+		int rslt = JOptionPane.showConfirmDialog(null, "确认退出系统?");
+		if(rslt==0){//是
+			frame.dispose();
+			System.exit(0);
+		}
+		
+		if(rslt==1){//否
+			
+		}
+		
+		if(rslt==2){//取消
+			
+		}
+	}
+
+	/**
+	 * 窗口尺寸改变
+	 */
+	public void resizeWin(JFrame frame) {
+		labelMax.setVisible(true);
+		labelResize.setVisible(false);
+		frame.setBounds(0, 0, origWidth, origHeight);
+		frame.setLocation(xOld, yOld);
+		frame.validate();
+	}
+	
+	private static int xOld;
+	private static int yOld;
+	private int origWidth;
+	private int origHeight;
+	/**
+	 * 最大化窗口
+	 */
+	public void maxWin(JFrame frame) {
+		labelMax.setVisible(false);
+		labelResize.setVisible(true);
+		origWidth = frame.getWidth();
+		origHeight = frame.getHeight();
+		xOld = frame.getX();
+		yOld = frame.getY();
+		frame.setBounds(0, 0, LzzFrameUtil.getWindowMaxWidth(), LzzFrameUtil.getWindowMaxHeight(frame));
+		frame.validate();
+	}
+
+	/**
+	 * 最小化窗口
+	 */
+	public void minWin(JFrame frame) {
+		// TODO Auto-generated method stub
+		frame.setExtendedState(JFrame.ICONIFIED);
+		frame.validate();
+	}
+}

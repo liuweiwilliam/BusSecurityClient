@@ -1,0 +1,52 @@
+8
+
+dir
+14853
+svn://47.96.24.30/BusSecurityClient/src/META-INF
+svn://47.96.24.30
+
+
+
+2018-06-27T04:54:40.032713Z
+14543
+liuwei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+10cc15d7-ed91-4ad7-ac41-a70f3bde075a
+
+MANIFEST.MF
+file
+
+
+
+
+2018-07-31T10:07:00.667643Z
+060bd0e8b17577980c48f259f702d65d
+2018-06-27T04:54:40.032713Z
+14543
+liuwei
+
+teamdev.licenses
+file
+
+
+
+
+2018-07-31T10:07:00.671643Z
+3dd88a7ca8844a78a528424893f1bb95
+2018-06-27T04:54:40.032713Z
+14543
+liuwei
+

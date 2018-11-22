@@ -1,0 +1,62 @@
+8
+
+dir
+14853
+svn://47.96.24.30/BusSecurityClient/src
+svn://47.96.24.30
+
+
+
+2018-07-19T04:26:30.721488Z
+14705
+liuwei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+10cc15d7-ed91-4ad7-ac41-a70f3bde075a
+
+META-INF
+dir
+
+images
+dir
+
+datepicker.jar
+file
+
+
+
+
+2018-07-31T10:08:10.545517Z
+19f88408b922254f1f170308efb0f51d
+2018-04-26T10:04:46.939103Z
+12897
+liuwei
+has-props
+
+lzz.properties
+file
+
+
+
+
+2018-07-31T10:08:10.550517Z
+8dfdcdb87e7c1aa4ab8698a84fe9a98a
+2018-04-05T10:36:13.531084Z
+12327
+liuwei
+
+com
+dir
+
